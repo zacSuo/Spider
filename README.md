@@ -13,8 +13,8 @@
 9. [广东省政府采购中心](http://gpcgd.gd.gov.cn/)
 
 ## 公司平台
-10. [有德招标](http://www.youde.net/)
-11. [广咨电子招投标](http://www.gzebid.cn/web-list/frontList?categoryId=b66478f0930d4162be8df579268b39a7)
-12. [建设招标网](https://www.jszhaobiao.com/notice.html)
-13. [中国比地招标](http://www.bidizhaobiao.com/zbgg/)
+1. [有德招标](http://www.youde.net/)
+2. [广咨电子招投标](http://www.gzebid.cn/web-list/frontList?categoryId=b66478f0930d4162be8df579268b39a7)
+3. [建设招标网](https://www.jszhaobiao.com/notice.html)
+4. [中国比地招标](http://www.bidizhaobiao.com/zbgg/)
 
