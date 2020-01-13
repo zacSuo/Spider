@@ -41,6 +41,19 @@ namespace Spider
         /// 索引编号
         /// </summary>
         public string Index;
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType()) return false;
+
+            PackageInfo item = (PackageInfo)obj;
+            return item.Number.Equals(this.Number);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Number.GetHashCode();
+        }
     }
 
      class GetPage

@@ -13,6 +13,11 @@ namespace Spider
 {
     partial class TenderService : ServiceBase
     {
+        bool saveFlag = false;
+        List<PackageInfo> itemList = new List<PackageInfo>();
+        ITender[] tenders = {new TenderGdEduLSCG(),
+                                new  TenderGdGpo()
+                            };
         public TenderService()
         {
             InitializeComponent();
@@ -29,10 +34,10 @@ namespace Spider
 
         private void OnTimer(object sender, ElapsedEventArgs args)
         {
-            List<PackageInfo> rList = new List<PackageInfo>();
-            ITender[] tenders = {new TenderGdEduLSCG(),
-                                new  TenderGdGpo()};
-
+            if(DateTime.Now.Hour == 0 && DateTime.Now.Minute == 0)
+            {
+                this.saveFlag = true;
+            }
             foreach (ITender item in tenders)
             {
                 if (item.NeedWaitTime > 0)
@@ -42,10 +47,20 @@ namespace Spider
                 }
                 item.NeedWaitTime = item.SleepMinutes;
                 List<PackageInfo> tempList = item.GetPackage();
-                rList.AddRange(tempList);
+                foreach (PackageInfo page in tempList)
+                {
+                    if (itemList.Contains(page))
+                    {
+                        itemList.Add(page);
+                    }
+                }
             }
 
-            new SaveInfo().SaveText(rList);
+            if (saveFlag)
+            {
+                new SaveInfo().SaveText(itemList);
+                this.saveFlag = false;
+            }
         }
 
         protected override void OnStop()
