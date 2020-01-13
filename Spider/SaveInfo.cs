@@ -18,7 +18,6 @@ namespace Spider
                     info.Name, info.Time, info.Seller, info.Price, info.Index, info.Number, info.Url);
                 this.WriteTextFile(strFileName,str);
             }
-            list.RemoveAll(null);
         }
 
         public void WriteTextFile(string fileName, string content)

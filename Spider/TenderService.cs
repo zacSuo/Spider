@@ -59,6 +59,7 @@ namespace Spider
             if (saveFlag)
             {
                 new SaveInfo().SaveText(itemList);
+                itemList.RemoveAll(null);
                 this.saveFlag = false;
             }
         }
