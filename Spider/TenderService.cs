@@ -25,6 +25,9 @@ namespace Spider
 
         protected override void OnStart(string[] args)
         {
+            string strFileName = "C://zb/logs.txt";
+            new SaveInfo().WriteTextFile(strFileName, DateTime.Now.ToString() + "START");
+
             // TODO: 在此处添加代码以启动服务。
             Timer timer = new Timer();
             timer.Interval = 60000; //1分钟执行一次
@@ -67,6 +70,9 @@ namespace Spider
         protected override void OnStop()
         {
             // TODO: 在此处添加代码以执行停止服务所需的关闭操作。
+
+            string strFileName = "C://zb/logs.txt";
+            new SaveInfo().WriteTextFile(strFileName, DateTime.Now.ToString() + "END");
         }
     }
 }

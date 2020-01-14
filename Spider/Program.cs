@@ -21,6 +21,9 @@ namespace Spider
                 new TenderService()
             };
             ServiceBase.Run(ServicesToRun);
+
+            //ITender tenders = new TenderGdGpo();
+            //tenders.GetPackage();
         }
     }
 }
