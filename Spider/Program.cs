@@ -14,16 +14,16 @@ namespace Spider
         /// </summary>
         static void Main()
         {
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[] 
-            //{ 
-            //    //new Xwlb() 
-            //    new TenderService()
-            //};
-            //ServiceBase.Run(ServicesToRun);
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[] 
+            { 
+                //new Xwlb() 
+                new TenderService()
+            };
+            ServiceBase.Run(ServicesToRun);
 
-            ITender tenders = new TenderGdGpo();
-            tenders.GetPackage();
+            //ITender tenders = new TenderGdGpo();
+            //tenders.GetPackage();
         }
     }
 }
