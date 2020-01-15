@@ -70,7 +70,10 @@ namespace Spider
         {
             // TODO: 在此处添加代码以执行停止服务所需的关闭操作。
 
-            new SaveInfo().WriteLog(DateTime.Now.ToString() + "END\r\n");
+            SaveInfo tool = new SaveInfo();
+            tool.SaveText(itemList);
+            tool.WriteLog(DateTime.Now.ToString() + "END\r\n");
+            
         }
     }
 }

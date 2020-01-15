@@ -35,5 +35,10 @@ namespace Spider
             string strFileName = "C://zb/logs.txt";
             this.WriteTextFile(strFileName, log);
         }
+
+        public void WriteError(Exception e)
+        {
+            this.WriteLog(DateTime.Now.ToString() + e.Message + "\r\n" + e.StackTrace + "\r\n");
+        }
     }
 }

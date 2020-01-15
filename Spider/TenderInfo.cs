@@ -95,7 +95,7 @@ namespace Spider
                 }
                 catch (Exception e)
                 {
-                    new SaveInfo().WriteLog(DateTime.Now.ToString() + e.StackTrace + "\r\n");
+                    new SaveInfo().WriteError(e);
                 }
             }
             return rList;
@@ -118,7 +118,7 @@ namespace Spider
                                     "<em>.*<",//时间
                                     page.GetValidKey,
                                     "/showNotice/id[^\"]*",   //详情url地址（序号）
-                                    "/searchAuditNum/searchAuditNum/[^\\.]*" ,    //编号
+                                    "项目编号[^<]*</span>" ,    //编号
                                     "预算金额（元）[^(span)]*span",   //价格
                                     "受.*的委托",//学校
                                 };
@@ -149,15 +149,16 @@ namespace Spider
                     
                     string strDetail = page.GetPageInfo(strUrl + p.Index);
                     
-                    p.Number = rUrl[4].Match(strDetail).Value.Substring(31);
+                    p.Number = rUrl[4].Match(strDetail).Value.Substring(5);
+                    p.Number = p.Number.Substring(0, p.Number.IndexOf('<'));
                     p.Price = rUrl[5].Match(strDetail).Value.Substring(8);
-                    p.Seller = rUrl[6].Match(strDetail).Value;
                     p.Price = p.Price.Substring(0, p.Price.IndexOf('<'));
+                    p.Seller = rUrl[6].Match(strDetail).Value;
                     rList.Add(p);
                 }
                 catch (Exception e)
                 {
-                    new SaveInfo().WriteLog(DateTime.Now.ToString() + e.StackTrace + "\r\n");
+                    new SaveInfo().WriteError(e);
                 }
             }
         }
