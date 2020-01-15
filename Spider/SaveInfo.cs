@@ -29,5 +29,11 @@ namespace Spider
             fs.Flush();
             fs.Close();
         }
+
+        public void WriteLog(string log)
+        {
+            string strFileName = "C://zb/logs.txt";
+            this.WriteTextFile(strFileName, log);
+        }
     }
 }

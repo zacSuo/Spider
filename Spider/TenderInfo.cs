@@ -95,7 +95,7 @@ namespace Spider
                 }
                 catch (Exception e)
                 {
-
+                    new SaveInfo().WriteLog(DateTime.Now.ToString() + e.StackTrace + "\r\n");
                 }
             }
             return rList;
@@ -157,7 +157,7 @@ namespace Spider
                 }
                 catch (Exception e)
                 {
-
+                    new SaveInfo().WriteLog(DateTime.Now.ToString() + e.StackTrace + "\r\n");
                 }
             }
         }
