@@ -13,7 +13,7 @@ namespace Spider
 {
     partial class TenderService : ServiceBase
     {
-        bool saveFlag = false;
+        DateTime dtLast = DateTime.Now;
         List<PackageInfo> itemList = new List<PackageInfo>();
         ITender[] tenders = {new TenderGdEduLSCG(),
                                 new  TenderGdGpo()
@@ -36,10 +36,6 @@ namespace Spider
 
         private void OnTimer(object sender, ElapsedEventArgs args)
         {
-            if(DateTime.Now.Hour == 0 && DateTime.Now.Minute == 0)
-            {
-                this.saveFlag = true;
-            }
             foreach (ITender item in tenders)
             {
                 if (item.NeedWaitTime > 0)
@@ -58,11 +54,11 @@ namespace Spider
                 }
             }
 
-            if (saveFlag)
+            if (DateTime.Now.Day != this.dtLast.Day)
             {
                 new SaveInfo().SaveText(itemList);
                 itemList.RemoveAll(null);
-                this.saveFlag = false;
+                this.dtLast = DateTime.Now;
             }
         }
 

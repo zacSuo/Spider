@@ -22,8 +22,10 @@ namespace Spider
             };
             ServiceBase.Run(ServicesToRun);
 
+            //DateTime dt = DateTime.Now.AddHours(10);
             //ITender tenders = new TenderGdGpo();
             //tenders.GetPackage();
+
         }
     }
 }

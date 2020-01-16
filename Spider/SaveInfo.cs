@@ -10,7 +10,7 @@ namespace Spider
     {
         public void SaveText(List<PackageInfo> list)
         {
-            string strFileName = "C://zb/" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
+            string strFileName = @"C:\Users\suo\zb" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
             
             foreach (PackageInfo info in list)
             {
@@ -32,7 +32,7 @@ namespace Spider
 
         public void WriteLog(string log)
         {
-            string strFileName = "C://zb/logs.txt";
+            string strFileName = @"C:\Users\suo\zb\logs.txt";
             this.WriteTextFile(strFileName, log);
         }
 
