@@ -149,7 +149,7 @@ namespace Spider
                     
                     string strDetail = page.GetPageInfo(strUrl + p.Index);
 
-                    //if (strDetail.Length > 0)
+                    if (strDetail.Length > 0)
                     {
                         p.Number = rUrl[4].Match(strDetail).Value.Substring(5);
                         p.Number = p.Number.Substring(0, p.Number.IndexOf('<'));
