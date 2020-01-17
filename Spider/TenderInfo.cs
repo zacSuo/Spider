@@ -148,12 +148,15 @@ namespace Spider
                     p.Url = strUrl;
                     
                     string strDetail = page.GetPageInfo(strUrl + p.Index);
-                    
-                    p.Number = rUrl[4].Match(strDetail).Value.Substring(5);
-                    p.Number = p.Number.Substring(0, p.Number.IndexOf('<'));
-                    p.Price = rUrl[5].Match(strDetail).Value.Substring(8);
-                    p.Price = p.Price.Substring(0, p.Price.IndexOf('<'));
-                    p.Seller = rUrl[6].Match(strDetail).Value;
+
+                    //if (strDetail.Length > 0)
+                    {
+                        p.Number = rUrl[4].Match(strDetail).Value.Substring(5);
+                        p.Number = p.Number.Substring(0, p.Number.IndexOf('<'));
+                        p.Price = rUrl[5].Match(strDetail).Value.Substring(8);
+                        p.Price = p.Price.Substring(0, p.Price.IndexOf('<'));
+                        p.Seller = rUrl[6].Match(strDetail).Value;
+                    }
                     rList.Add(p);
                 }
                 catch (Exception e)

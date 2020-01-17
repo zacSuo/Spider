@@ -54,6 +54,8 @@ namespace Spider
                 }
             }
 
+
+            new SaveInfo().WriteLog(string.Format("date:{0},{1}", this.dtLast.Day, DateTime.Now.Day));
             if (DateTime.Now.Day != this.dtLast.Day)
             {
                 new SaveInfo().SaveText(itemList);
