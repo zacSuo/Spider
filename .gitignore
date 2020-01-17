@@ -60,3 +60,4 @@ Release/
 *.user
 *.filters
 *.ipch
+*.bat
